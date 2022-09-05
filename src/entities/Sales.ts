@@ -1,7 +1,7 @@
 import { text } from "stream/consumers";
 import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Subject } from "./Subject";
-import { Video } from "./Video";
+import { Product } from "./Product";
+
 
 @Entity('sales')
 export class Sales {
@@ -14,12 +14,20 @@ export class Sales {
     @Column({ type: 'text', nullable: true })
     description: string
 
+    @Column({type: 'text'})
+    produ: string
 
-    @OneToMany(() => Video,(video) => video.sales)
-    videos: Video[]
+    @Column({type: 'text' })
+    amount: string
+
+    @Column({type: 'text' })
+    saleDate: string
+
+    @Column({type: 'text' })
+    payment: string
 
 
-    @ManyToMany(() =>Subject, subject => subject.sales)
-    subjects: Subject[]
+    @ManyToMany(() =>Product, product => product.sales)
+    products: Product[]
 }
 

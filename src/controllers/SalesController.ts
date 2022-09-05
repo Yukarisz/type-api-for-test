@@ -3,10 +3,10 @@ import { salesRepository } from "../repositories/salesRepository";
 
 export class SalesController {
     async create(req:Request, res: Response){
-        const {name, description} = req.body
+        const {name, description, produ ,amount , saleDate, payment} = req.body
 
 try {
-    const newSales = salesRepository.create({name, description})
+    const newSales = salesRepository.create({name, description, produ, amount, saleDate, payment})
     await salesRepository.save(newSales)
     
     return res.status(201).json(newSales)
