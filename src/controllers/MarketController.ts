@@ -1,15 +1,16 @@
 import { Request, Response } from "express";
-import { salesRepository } from "../repositories/salesRepository";
+import { marketRepository } from "../repositories/marketRepository";
 
-export class SalesController {
+
+export class MarketController {
     async create(req:Request, res: Response){
         const {name, description, produ ,amount , saleDate, payment} = req.body
 
 try {
-    const newSales = salesRepository.create({name, description, produ, amount, saleDate, payment})
-    await salesRepository.save(newSales)
+    const newMarket = marketRepository.create({name, description, produ, amount, saleDate, payment})
+    await marketRepository.save(newMarket)
     
-    return res.status(201).json(newSales)
+    return res.status(201).json(newMarket)
     
 } catch (error) {
     console.log(error);

@@ -3,8 +3,8 @@ import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "t
 import { Product } from "./Product";
 
 
-@Entity('sales')
-export class Sales {
+@Entity('market')
+export class Market {
     @PrimaryGeneratedColumn()
     id: number
 
@@ -27,7 +27,7 @@ export class Sales {
     payment: string
 
 
-    @ManyToMany(() =>Product, product => product.sales)
+    @ManyToMany(() =>Product, product => product.market)
     products: Product[]
 }
 

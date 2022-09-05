@@ -1,5 +1,6 @@
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Sales } from "./Sales";
+import { Market } from "./Market";
+
 
 @Entity('products')
 export class  Product {
@@ -30,11 +31,11 @@ export class  Product {
    @Column({type: 'text'})
    category: string
 
-   @ManyToMany(() => Sales, sales => sales.products)
+   @ManyToMany(() => Market, market => market.products)
    @JoinTable({
-       name: 'sales_product',
+       name: 'market_product',
        joinColumn: {
-           name: 'sales_id',
+           name: 'market_id',
            referencedColumnName: 'id'
        },
        inverseJoinColumn: {
@@ -42,6 +43,6 @@ export class  Product {
            referencedColumnName: 'id'
        }
    })
-   @ManyToMany(() =>Sales, sales => sales.products)
-   sales: Sales[]
+   @ManyToMany(() =>Market, market => market.products)
+   market: Market[]
 }
