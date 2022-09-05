@@ -1,10 +1,10 @@
-import { text } from "stream/consumers";
-import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Product } from "./Product";
 
-
 @Entity('market')
+
 export class Market {
+
     @PrimaryGeneratedColumn()
     id: number
 
@@ -26,8 +26,6 @@ export class Market {
     @Column({type: 'text' })
     payment: string
 
-
     @ManyToMany(() =>Product, product => product.market)
     products: Product[]
 }
-

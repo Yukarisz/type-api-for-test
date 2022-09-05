@@ -1,9 +1,10 @@
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Market } from "./Market";
 
-
 @Entity('products')
+
 export class  Product {
+
     @PrimaryGeneratedColumn()
    id: number
 
@@ -33,11 +34,14 @@ export class  Product {
 
    @ManyToMany(() => Market, market => market.products)
    @JoinTable({
+
        name: 'market_product',
        joinColumn: {
+
            name: 'market_id',
            referencedColumnName: 'id'
        },
+       
        inverseJoinColumn: {
            name: 'product_id',
            referencedColumnName: 'id'
