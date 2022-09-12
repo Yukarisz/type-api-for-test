@@ -31,22 +31,4 @@ export class  Product {
      
    @Column({type: 'text'})
    category: string
-
-   @ManyToMany(() => Market, market => market.products)
-   @JoinTable({
-
-       name: 'market_product',
-       joinColumn: {
-
-           name: 'market_id',
-           referencedColumnName: 'id'
-       },
-       
-       inverseJoinColumn: {
-           name: 'product_id',
-           referencedColumnName: 'id'
-       }
-   })
-   @ManyToMany(() =>Market, market => market.products)
-   market: Market[]
 }
