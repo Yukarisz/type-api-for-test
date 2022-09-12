@@ -26,6 +26,4 @@ export class Market {
     @Column({type: 'text' })
     payment: string
 
-    @ManyToMany(() =>Product, product => product.market)
-    products: Product[]
 }
